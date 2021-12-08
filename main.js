@@ -1,12 +1,31 @@
-// const cilckBtn = document.getElementById("click");
+const shareBtn = document.querySelector(".share-btn");
+const shareSection = document.querySelector(".description__share");
 
-// cilckBtn.addEventListener("click", function(e){
-//     if (window.innerWidth < 1000) {
-//         console.log("small screen");
-//     } else {
-//         console.log("big screen");
-//     }
-// });
+shareBtn.addEventListener("click", showOptions);
 
+function showOptions(e){
+    const shareOptions = document.querySelector(".share-options");
+    //define the share box we want for mobile and tablets
+    if (window.innerWidth < 1000) {
+        const clientDetail = document.querySelector(".client-info");
+    
+        shareOptions.classList.toggle("mobile-share");
+        //style the box accordingly to the design
+        shareSection.classList.toggle("description__share--active")
 
-// console.log(cilckBtn.textContent);
+        if (clientDetail.style.display === "none") {
+            clientDetail.style.display = "flex";
+        } else {
+            clientDetail.style.display = "none";
+        }
+        //If the desktop sharing box has been activated previously we deactivate it
+        shareOptions.classList.remove("desktop-share");
+    } else {
+        shareOptions.classList.toggle("desktop-share");
+        const clientDetail = document.querySelector(".client-info"); clientDetail.style.display = "flex";
+
+        //If the mobile sharing box has been activated previously we deactivate and also remove all its stylings
+        shareOptions.classList.remove("mobile-share");
+        shareSection.classList.remove("description__share--active");
+    }
+}

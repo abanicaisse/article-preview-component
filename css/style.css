@@ -50,6 +50,7 @@ main section {
 }
 
 .description {
+    position: relative;
     background-color: white;
     padding: 2rem 2rem 1rem 2rem;
     border-bottom-left-radius: .5rem;
@@ -73,13 +74,23 @@ main section {
     align-items: center;
 }
 
+.description__share--active {
+    background-color:  hsl(217, 19%, 35%);
+    margin: 0 -2rem -1rem -2rem;
+    padding: 0 2rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+
 
 /* Sharing Options popup */
 .description__share .share-options {
+    /* display: none; */
     display: none;
     background-color: var(--darker-gray-blue);
     color: var(--gray-blue);
     grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
     padding: 1rem 0;
     justify-content: space-between;
     align-items: center;
@@ -97,13 +108,39 @@ main section {
     justify-content: space-around;
 }
 
+/*  */
+
+.description__share .mobile-share {
+    /* display: none; */
+    display: grid;
+    background-color: var(--darker-gray-blue);
+    color: var(--gray-blue);
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+    padding: 1rem 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.description__share .mobile-share p {
+    letter-spacing: 5px;
+    padding-left: 1rem;
+    /* display: flex; */
+    /* justify-content: space-around; */
+}
+
+.description__share .mobile-share span {
+    display: flex;
+    justify-content: space-around;
+}
+
 
 
 /* To be added with JavaScript */
 .description__share .desktop-share {
     /* display: none; */
-    display: none;
-    position: relative;
+    display: grid;
+    position: absolute;
     width: 15rem;
     background-color: var(--darker-gray-blue);
     color: var(--gray-blue);
@@ -112,7 +149,8 @@ main section {
     justify-content: space-between;
     align-items: center;
     border-radius: .5rem;
-    /* top: -100px; */
+    bottom: 35%;
+    right: -13%;
 }
 
 .description__share .desktop-share::after {
