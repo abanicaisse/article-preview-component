@@ -1,0 +1,183 @@
+:root {
+    --darker-gray-blue: hsl(217, 19%, 35%);
+    --desat-dark-blue: hsl(214, 17%, 51%);
+    --gray-blue: hsl(212, 23%, 69%);
+    --light-gray-blue: hsl(210, 46%, 95%);
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--light-gray-blue);
+    font-family: "Manrope", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: grid;
+    place-items: center;
+    margin: 2rem auto;
+}
+
+main section {
+    width: 90%;
+    margin: auto;
+}
+
+.img-section {
+    width: 90%;
+    margin: auto;
+}
+
+.img-section img {
+    width: 100%;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+.description {
+    background-color: white;
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+}
+
+.description__text h3 {
+    color: var(--darker-gray-blue);
+    margin-bottom: 1rem;
+}
+
+.description__text p {
+    color: var(--desat-dark-blue);
+    margin-bottom: 1rem;
+}
+
+.description__share {
+    display: flex;
+    /* background-color: wheat; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Sharing Options popup */
+.description__share .share-options {
+    display: none;
+    background-color: var(--darker-gray-blue);
+    color: var(--gray-blue);
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.description__share .share-options p {
+    letter-spacing: 5px;
+    padding-left: 1rem;
+    /* display: flex; */
+    /* justify-content: space-around; */
+}
+
+.description__share .share-options span {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+/* To be added with JavaScript */
+.description__share .desktop-share {
+    /* display: none; */
+    display: none;
+    position: relative;
+    width: 15rem;
+    background-color: var(--darker-gray-blue);
+    color: var(--gray-blue);
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: .5rem;
+    /* top: -100px; */
+}
+
+.description__share .desktop-share::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    bottom: -.9rem;
+    left: 50%;
+    border-top: 15px solid var(--darker-gray-blue);
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+}
+
+.description__share .desktop-share span {
+    display: flex;
+    justify-content: space-around;
+}
+
+.description__share .desktop-share p {
+    letter-spacing: 5px;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Client Info and Share Button */
+.client-info {
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+}
+
+.client-info p {
+    color: var(--gray-blue);
+    font-size: .7rem;
+}
+
+.client-info p span {
+    color: var(--darker-gray-blue);
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+
+.client-info img {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.share-btn {
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: var(--light-gray-blue);
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+}
+
+.attribution {
+    /* background-color: red; */
+    text-align: center;
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.attribution a {
+    text-decoration: none;
+    color: var(--darker-gray-blue);
+    font-weight: 700;
+}
