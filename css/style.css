@@ -14,7 +14,7 @@
 body {
     width: 100%;
     background-color: var(--light-gray-blue);
-    font-family: "Manrope", sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-size: 13px;
     font-weight: 500;
 }
@@ -69,7 +69,6 @@ main section {
 
 .description__share {
     display: flex;
-    /* background-color: wheat; */
     justify-content: space-between;
     align-items: center;
 }
@@ -80,12 +79,12 @@ main section {
     padding: 0 2rem;
     border-bottom-left-radius: .5rem;
     border-bottom-right-radius: .5rem;
+    animation: mobile-popup .65s ease;
 }
 
 
 /* Sharing Options popup */
 .description__share .share-options {
-    /* display: none; */
     display: none;
     background-color: var(--darker-gray-blue);
     color: var(--gray-blue);
@@ -99,8 +98,6 @@ main section {
 .description__share .share-options p {
     letter-spacing: 5px;
     padding-left: 1rem;
-    /* display: flex; */
-    /* justify-content: space-around; */
 }
 
 .description__share .share-options span {
@@ -108,10 +105,8 @@ main section {
     justify-content: space-around;
 }
 
-/*  */
-
 .description__share .mobile-share {
-    /* display: none; */
+    position: relative;
     display: grid;
     background-color: var(--darker-gray-blue);
     color: var(--gray-blue);
@@ -120,13 +115,27 @@ main section {
     padding: 1rem 0;
     justify-content: space-between;
     align-items: center;
+    animation: mobile-popup 1s ease;
+
 }
+
+@keyframes mobile-popup {
+    0% {
+        left: -100%;
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
 
 .description__share .mobile-share p {
     letter-spacing: 5px;
     padding-left: 1rem;
-    /* display: flex; */
-    /* justify-content: space-around; */
 }
 
 .description__share .mobile-share span {
@@ -137,8 +146,8 @@ main section {
 
 
 /* To be added with JavaScript */
-.description__share .desktop-share {
-    /* display: none; */
+.description__share .desktop-share,
+.description__share .reverse  {
     display: grid;
     position: absolute;
     width: 15rem;
@@ -151,9 +160,29 @@ main section {
     border-radius: .5rem;
     bottom: 35%;
     right: -13%;
+    animation: desktop-popup 1s ease-in-out;
 }
 
-.description__share .desktop-share::after {
+.description__share .reverse {
+    display: grid;
+    animation: desktop-popup 1s ease-in-out reverse forwards;
+}
+
+@keyframes desktop-popup {
+    0% {
+        right: -25%;
+        bottom: 40%;
+        opacity: 0;
+        display: none;
+        transform: rotate(90deg);
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+.description__share .desktop-share::after,
+.description__share .reverse::after {
     content: "";
     position: absolute;
     width: 10px;
@@ -166,12 +195,14 @@ main section {
     border-right: 15px solid transparent;
 }
 
-.description__share .desktop-share span {
+.description__share .desktop-share span,
+.description__share .reverse span {
     display: flex;
     justify-content: space-around;
 }
 
-.description__share .desktop-share p {
+.description__share .desktop-share p,
+.description__share .reverse p {
     letter-spacing: 5px;
     display: flex;
     justify-content: space-around;
@@ -179,9 +210,19 @@ main section {
 
 /* Client Info and Share Button */
 .client-info {
-    /* background-color: red; */
+    position: relative;
     display: flex;
     align-items: center;
+}
+
+@keyframes return {
+    0% {
+        opacity: 0;
+        right: -100%;
+    }
+    100% {
+        right: 0%;
+    }
 }
 
 .client-info p {
@@ -212,7 +253,6 @@ main section {
 }
 
 .attribution {
-    /* background-color: red; */
     text-align: center;
     padding-top: 1rem;
     margin-bottom: 2rem;
@@ -230,12 +270,10 @@ main section {
     }
 
     .card {
-        /* height:  */
         width: min(75%, 50rem);
         display: grid;
         grid-template-areas: 
         "image description";
-        /* place-items: center; */
         border-radius: .5rem;
     }
 
